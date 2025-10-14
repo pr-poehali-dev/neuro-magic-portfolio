@@ -95,7 +95,7 @@ const Index = () => {
     {
       title: "ГРОССМАРТ (Элекскор)",
       text: "Рост сети → грейды, стандарты, резерв; регламенты и обучение обеспечили кадровую готовность.",
-      logo: ""
+      logo: "https://cdn.poehali.dev/files/568057c0-0e81-4f3d-a64b-aadf688a0be4.png"
     },
     {
       title: "NISSA",
@@ -166,28 +166,28 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button size="lg" className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 text-white text-lg px-8 py-6">
+            <Button size="lg" className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 hover:shadow-[0_0_40px_rgba(185,0,255,0.6)] transition-all duration-300 text-white text-lg px-8 py-6">
               <a href="#form">Запросить созвон</a>
             </Button>
-            <Button size="lg" variant="outline" className="neon-border text-white hover:bg-white/5 text-lg px-8 py-6">
+            <Button size="lg" variant="outline" className="neon-border text-white hover:bg-white/5 hover:shadow-[0_0_30px_rgba(0,180,255,0.4)] transition-all duration-300 text-lg px-8 py-6">
               <a href="#demo">Посмотреть демо "Нейропродавец"</a>
             </Button>
           </div>
           
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button variant="ghost" className="neon-border hover:bg-white/5" asChild>
+            <Button variant="ghost" className="neon-border hover:bg-white/5 hover:shadow-[0_0_20px_rgba(185,0,255,0.4)] transition-all duration-300" asChild>
               <a href="https://wa.me/79268140307" target="_blank" rel="noopener noreferrer">
                 <Icon name="MessageCircle" className="mr-2" />
                 WhatsApp
               </a>
             </Button>
-            <Button variant="ghost" className="neon-border hover:bg-white/5" asChild>
+            <Button variant="ghost" className="neon-border hover:bg-white/5 hover:shadow-[0_0_20px_rgba(0,180,255,0.4)] transition-all duration-300" asChild>
               <a href="https://t.me/valeryka76" target="_blank" rel="noopener noreferrer">
                 <Icon name="Send" className="mr-2" />
                 Telegram
               </a>
             </Button>
-            <Button variant="ghost" className="neon-border hover:bg-white/5" asChild>
+            <Button variant="ghost" className="neon-border hover:bg-white/5 hover:shadow-[0_0_20px_rgba(255,30,121,0.4)] transition-all duration-300" asChild>
               <a href="mailto:valeryka@yandex.ru">
                 <Icon name="Mail" className="mr-2" />
                 Email
@@ -197,7 +197,9 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 px-4 relative">
+      <section className="py-24 px-4 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-neon-purple to-transparent opacity-30"></div>
+        <div className="absolute bottom-0 right-0 w-full h-2 bg-gradient-to-r from-transparent via-neon-blue to-transparent opacity-30"></div>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-16 text-glow bg-gradient-to-r from-neon-purple to-neon-blue bg-clip-text text-transparent">
             Что я делаю с ИИ для вашего бизнеса
@@ -205,7 +207,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, idx) => (
-              <Card key={idx} className="glass-card p-6 hover:scale-105 transition-transform duration-300 animate-fade-in" style={{ animationDelay: `${idx * 100}ms` }}>
+              <Card key={idx} className="glass-card p-6 hover:scale-105 hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300 animate-fade-in" style={{ animationDelay: `${idx * 100}ms` }}>
                 <div className="mb-4">
                   <Icon name={service.icon} size={40} className="text-neon-pink animate-glow-pulse" />
                 </div>
@@ -230,22 +232,26 @@ const Index = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-gradient-to-r from-neon-blue to-neon-purple hover:opacity-90 text-white px-8 py-6">
+            <Button size="lg" className="bg-gradient-to-r from-neon-blue to-neon-purple hover:opacity-90 hover:shadow-[0_0_40px_rgba(0,180,255,0.6)] transition-all duration-300 text-white px-8 py-6">
               <a href="#form">Получить подробности решений</a>
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-dark-surface/30">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 px-4 bg-dark-surface/30 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: 'repeating-linear-gradient(0deg, rgba(185, 0, 255, 0.05) 0px, transparent 1px, transparent 2px, rgba(185, 0, 255, 0.05) 3px), repeating-linear-gradient(90deg, rgba(0, 180, 255, 0.05) 0px, transparent 1px, transparent 2px, rgba(0, 180, 255, 0.05) 3px)',
+          backgroundSize: '50px 50px'
+        }}></div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-16 text-glow bg-gradient-to-r from-neon-pink to-neon-purple bg-clip-text text-transparent">
             Кейсы и эффекты
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             {cases.map((caseItem, idx) => (
-              <Card key={idx} className="glass-card p-8 hover:scale-105 transition-transform duration-300">
+              <Card key={idx} className="glass-card p-8 hover:scale-105 hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300">
                 {caseItem.logo && (
                   <div className="mb-4 h-16 flex items-center">
                     <img src={caseItem.logo} alt={caseItem.title} className="max-h-12 object-contain" />
@@ -258,15 +264,18 @@ const Index = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="neon-border text-white hover:bg-white/5 px-8 py-6">
+            <Button size="lg" variant="outline" className="neon-border text-white hover:bg-white/5 hover:shadow-[0_0_30px_rgba(255,30,121,0.4)] transition-all duration-300 px-8 py-6">
               <a href="#form">Запросить подробности кейса</a>
             </Button>
           </div>
         </div>
       </section>
 
-      <section id="demo" className="py-24 px-4">
-        <div className="max-w-6xl mx-auto">
+      <section id="demo" className="py-24 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(185, 0, 255, 0.2) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 180, 255, 0.2) 0%, transparent 50%)'
+        }}></div>
+        <div className="max-w-6xl mx-auto relative z-10">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-8 text-glow bg-gradient-to-r from-neon-blue to-neon-pink bg-clip-text text-transparent">
             Нейропродавец: ваш бот-продавец 24/7
           </h2>
@@ -276,18 +285,18 @@ const Index = () => {
           </p>
           
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <Card className="glass-card p-6">
+            <Card className="glass-card p-6 hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300">
               <div className="aspect-video bg-dark-bg rounded-lg flex items-center justify-center neon-border">
                 <a href="https://vkvideo.ru/video-193144761_456239140" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-neon-purple hover:text-neon-pink transition-colors">
-                  <Icon name="Play" size={48} />
+                  <Icon name="Play" size={48} className="animate-glow-pulse" />
                   <span>Смотреть видео 1</span>
                 </a>
               </div>
             </Card>
-            <Card className="glass-card p-6">
+            <Card className="glass-card p-6 hover:shadow-[0_0_30px_rgba(0,180,255,0.3)] transition-all duration-300">
               <div className="aspect-video bg-dark-bg rounded-lg flex items-center justify-center neon-border">
                 <a href="https://vkvideo.ru/video-193144761_456239192" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-neon-purple hover:text-neon-pink transition-colors">
-                  <Icon name="Play" size={48} />
+                  <Icon name="Play" size={48} className="animate-glow-pulse" />
                   <span>Смотреть видео 2</span>
                 </a>
               </div>
@@ -296,16 +305,123 @@ const Index = () => {
           
           <div className="flex flex-wrap gap-3 justify-center mb-8">
             {["24/7", "Скорость реакции", "Экономия времени команды", "Рост MQL/SQL"].map((chip, idx) => (
-              <span key={idx} className="px-4 py-2 glass-card rounded-full text-sm neon-border">
+              <span key={idx} className="px-4 py-2 glass-card rounded-full text-sm neon-border hover:shadow-[0_0_15px_rgba(185,0,255,0.5)] transition-all duration-300 cursor-default">
                 {chip}
               </span>
             ))}
           </div>
           
           <div className="text-center">
-            <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:opacity-90 text-white px-8 py-6">
+            <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:opacity-90 hover:shadow-[0_0_40px_rgba(255,30,121,0.6)] transition-all duration-300 text-white px-8 py-6">
               <a href="#form">Заказать Нейропродавца</a>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-4 bg-dark-surface/30 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: 'repeating-linear-gradient(0deg, rgba(185, 0, 255, 0.05) 0px, transparent 1px, transparent 2px, rgba(185, 0, 255, 0.05) 3px), repeating-linear-gradient(90deg, rgba(0, 180, 255, 0.05) 0px, transparent 1px, transparent 2px, rgba(0, 180, 255, 0.05) 3px)',
+          backgroundSize: '50px 50px'
+        }}></div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-8 text-glow bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+            Спикер и медиа
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <Card className="glass-card p-6 neon-border hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300">
+              <img 
+                src="https://cdn.poehali.dev/files/8019197a-ac7e-4282-a997-2c8c27f471e6.png" 
+                alt="Валерия на сцене"
+                className="w-full h-80 object-cover rounded-lg mb-4"
+              />
+            </Card>
+            <Card className="glass-card p-6 neon-border hover:shadow-[0_0_30px_rgba(0,180,255,0.3)] transition-all duration-300">
+              <img 
+                src="https://cdn.poehali.dev/files/45a9a4e8-6558-426e-94d5-45e509ebbac0.png" 
+                alt="Валерия портрет"
+                className="w-full h-80 object-cover rounded-lg mb-4"
+              />
+            </Card>
+          </div>
+          
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-center mb-6 text-white">Выступления</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="glass-card p-6 neon-border hover:shadow-[0_0_30px_rgba(255,30,121,0.3)] transition-all duration-300">
+                <div className="aspect-video bg-dark-bg rounded-lg flex items-center justify-center mb-4 neon-border">
+                  <a href="https://youtu.be/Wy4dw35zI80" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-neon-purple hover:text-neon-pink transition-colors">
+                    <Icon name="Play" size={48} className="animate-glow-pulse" />
+                    <span className="text-center">Конгресс НСК</span>
+                  </a>
+                </div>
+              </Card>
+              <Card className="glass-card p-6 neon-border hover:shadow-[0_0_30px_rgba(255,30,121,0.3)] transition-all duration-300">
+                <div className="aspect-video bg-dark-bg rounded-lg flex items-center justify-center mb-4 neon-border">
+                  <a href="https://youtu.be/fkrMBNta_W4" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-neon-purple hover:text-neon-pink transition-colors">
+                    <Icon name="Play" size={48} className="animate-glow-pulse" />
+                    <span className="text-center">День нейросетей в «Терре»</span>
+                  </a>
+                </div>
+              </Card>
+            </div>
+          </div>
+          
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-white">Компании, с которыми работала</h3>
+            <div className="flex flex-wrap items-center justify-center gap-8 opacity-70">
+              {cases.map((caseItem, idx) => caseItem.logo && (
+                <img 
+                  key={idx}
+                  src={caseItem.logo} 
+                  alt={caseItem.title} 
+                  className="h-12 object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:scale-110 cursor-pointer"
+                />
+              ))}
+            </div>
+          </div>
+          
+          <div className="text-center">
+            <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:opacity-90 hover:shadow-[0_0_40px_rgba(185,0,255,0.6)] transition-all duration-300 text-white px-8 py-6">
+              <a href="#form">Позвать спикером</a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(185, 0, 255, 0.2) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 180, 255, 0.2) 0%, transparent 50%)'
+        }}></div>
+        <div className="max-w-4xl mx-auto relative z-10">
+          <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-16 text-glow bg-gradient-to-r from-neon-blue to-neon-pink bg-clip-text text-transparent">
+            Материалы / Бонусы
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="glass-card p-8 neon-border hover:scale-105 hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300">
+              <Icon name="Gift" size={48} className="text-neon-purple mb-4 animate-float" />
+              <h3 className="text-xl font-bold mb-3 text-white">Контент-набор: 20 идей и промптов</h3>
+              <p className="text-muted-foreground mb-4">«возьми → вставь → получи контент»</p>
+              <Button variant="outline" className="neon-border text-white hover:bg-white/5 hover:shadow-[0_0_20px_rgba(0,180,255,0.4)] transition-all" asChild>
+                <a href="https://disk.yandex.ru/i/gSPbzaVkF1jwdA" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Download" className="mr-2" size={16} />
+                  Скачать
+                </a>
+              </Button>
+            </Card>
+            <Card className="glass-card p-8 neon-border hover:scale-105 hover:shadow-[0_0_30px_rgba(0,180,255,0.3)] transition-all duration-300">
+              <Icon name="Sparkles" size={48} className="text-neon-blue mb-4 animate-float" />
+              <h3 className="text-xl font-bold mb-3 text-white">ТОП-15 связок для заработка с ИИ</h3>
+              <p className="text-muted-foreground mb-4">простые быстрые связки инструмент+задача+результат</p>
+              <Button variant="outline" className="neon-border text-white hover:bg-white/5 hover:shadow-[0_0_20px_rgba(255,30,121,0.4)] transition-all" asChild>
+                <a href="https://disk.yandex.ru/i/-YV5DYzIncj9cw" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Download" className="mr-2" size={16} />
+                  Скачать
+                </a>
+              </Button>
+            </Card>
           </div>
         </div>
       </section>
@@ -322,7 +438,7 @@ const Index = () => {
               { title: "Пилот 10–14 дней", desc: "MVP/бот/регламент, метрики, обучение команды.", icon: "Rocket" },
               { title: "Масштабирование", desc: "Интеграции, KPI-панель, регламенты, обучение лидов.", icon: "TrendingUp" }
             ].map((step, idx) => (
-              <Card key={idx} className="glass-card p-8 text-center hover:scale-105 transition-transform duration-300">
+              <Card key={idx} className="glass-card p-8 text-center hover:scale-105 hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-neon-purple to-neon-pink mb-6">
                   <Icon name={step.icon} size={32} className="text-white" />
                 </div>
@@ -333,7 +449,7 @@ const Index = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="neon-border text-white hover:bg-white/5 px-8 py-6">
+            <Button size="lg" variant="outline" className="neon-border text-white hover:bg-white/5 hover:shadow-[0_0_30px_rgba(255,30,121,0.4)] transition-all duration-300 px-8 py-6">
               <a href="#form">Запросить дорожную карту (HR+ИИ)</a>
             </Button>
           </div>
@@ -348,15 +464,15 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 gap-6">
             {packages.map((pkg, idx) => (
-              <Card key={idx} className="glass-card p-8 hover:scale-105 transition-transform duration-300">
+              <Card key={idx} className="glass-card p-8 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,180,255,0.3)] transition-all duration-300">
                 {pkg.badge && (
-                  <span className="inline-block px-3 py-1 text-xs rounded-full bg-gradient-to-r from-neon-purple to-neon-pink text-white mb-4">
+                  <span className="inline-block px-3 py-1 text-xs rounded-full bg-gradient-to-r from-neon-purple to-neon-pink text-white mb-4 shadow-[0_0_15px_rgba(185,0,255,0.5)]">
                     {pkg.badge}
                   </span>
                 )}
                 <h3 className="text-2xl font-bold mb-3 text-white">{pkg.title}</h3>
                 <p className="text-muted-foreground mb-6">{pkg.desc}</p>
-                <Button className="w-full bg-gradient-to-r from-neon-blue to-neon-purple hover:opacity-90" asChild>
+                <Button className="w-full bg-gradient-to-r from-neon-blue to-neon-purple hover:opacity-90 hover:shadow-[0_0_30px_rgba(0,180,255,0.5)] transition-all duration-300" asChild>
                   <a href="#form">Получить предложение</a>
                 </Button>
               </Card>
@@ -373,7 +489,7 @@ const Index = () => {
           
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="glass-card px-6 rounded-lg neon-border">
+              <AccordionItem key={idx} value={`item-${idx}`} className="glass-card px-6 rounded-lg neon-border hover:shadow-[0_0_20px_rgba(185,0,255,0.3)] transition-all">
                 <AccordionTrigger className="text-lg font-semibold text-white hover:text-neon-pink">
                   {faq.q}
                 </AccordionTrigger>
@@ -392,7 +508,7 @@ const Index = () => {
             Запросить созвон
           </h2>
           
-          <Card className="glass-card p-8 neon-border">
+          <Card className="glass-card p-8 neon-border hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="name" className="text-white">Имя *</Label>
@@ -401,7 +517,7 @@ const Index = () => {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-dark-bg border-white/10 text-white mt-2"
+                  className="bg-dark-bg border-white/10 text-white mt-2 focus:border-neon-purple focus:ring-neon-purple/20"
                 />
               </div>
               
@@ -412,7 +528,7 @@ const Index = () => {
                     id="company"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="bg-dark-bg border-white/10 text-white mt-2"
+                    className="bg-dark-bg border-white/10 text-white mt-2 focus:border-neon-purple focus:ring-neon-purple/20"
                   />
                 </div>
                 <div>
@@ -421,7 +537,7 @@ const Index = () => {
                     id="role"
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className="bg-dark-bg border-white/10 text-white mt-2"
+                    className="bg-dark-bg border-white/10 text-white mt-2 focus:border-neon-purple focus:ring-neon-purple/20"
                   />
                 </div>
               </div>
@@ -434,7 +550,7 @@ const Index = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="bg-dark-bg border-white/10 text-white mt-2"
+                    className="bg-dark-bg border-white/10 text-white mt-2 focus:border-neon-purple focus:ring-neon-purple/20"
                   />
                 </div>
                 <div>
@@ -445,7 +561,7 @@ const Index = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-dark-bg border-white/10 text-white mt-2"
+                    className="bg-dark-bg border-white/10 text-white mt-2 focus:border-neon-purple focus:ring-neon-purple/20"
                   />
                 </div>
               </div>
@@ -484,7 +600,7 @@ const Index = () => {
                   id="comment"
                   value={formData.comment}
                   onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-                  className="bg-dark-bg border-white/10 text-white mt-2 min-h-24"
+                  className="bg-dark-bg border-white/10 text-white mt-2 min-h-24 focus:border-neon-purple focus:ring-neon-purple/20"
                 />
               </div>
               
@@ -503,7 +619,7 @@ const Index = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue hover:opacity-90 text-white text-lg py-6"
+                className="w-full bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue hover:opacity-90 hover:shadow-[0_0_40px_rgba(185,0,255,0.6)] transition-all duration-300 text-white text-lg py-6"
                 disabled={!formData.consent}
               >
                 Отправить заявку
@@ -517,19 +633,19 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center gap-8">
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button variant="ghost" className="neon-border hover:bg-white/5" asChild>
+              <Button variant="ghost" className="neon-border hover:bg-white/5 hover:shadow-[0_0_20px_rgba(185,0,255,0.4)] transition-all duration-300" asChild>
                 <a href="https://wa.me/79268140307" target="_blank" rel="noopener noreferrer">
                   <Icon name="MessageCircle" className="mr-2" />
                   WhatsApp
                 </a>
               </Button>
-              <Button variant="ghost" className="neon-border hover:bg-white/5" asChild>
+              <Button variant="ghost" className="neon-border hover:bg-white/5 hover:shadow-[0_0_20px_rgba(0,180,255,0.4)] transition-all duration-300" asChild>
                 <a href="https://t.me/valeryka76" target="_blank" rel="noopener noreferrer">
                   <Icon name="Send" className="mr-2" />
                   Telegram
                 </a>
               </Button>
-              <Button variant="ghost" className="neon-border hover:bg-white/5" asChild>
+              <Button variant="ghost" className="neon-border hover:bg-white/5 hover:shadow-[0_0_20px_rgba(255,30,121,0.4)] transition-all duration-300" asChild>
                 <a href="mailto:valeryka@yandex.ru">
                   <Icon name="Mail" className="mr-2" />
                   Email
