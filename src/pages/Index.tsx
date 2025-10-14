@@ -163,7 +163,7 @@ const Index = () => {
   return (
     <div ref={parallaxRef} className="relative min-h-screen bg-dark-bg text-white overflow-x-hidden">
       <ParticlesBackground />
-      <section className="relative z-10 min-h-screen flex items-center justify-center px-4 overflow-hidden parallax-section" data-speed="0.3">
+      <section className="relative z-10 min-h-screen flex items-center justify-center px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-neon-purple/20 via-neon-pink/10 to-neon-blue/20"></div>
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(185, 0, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(0, 180, 255, 0.15) 0%, transparent 50%)',
@@ -222,7 +222,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative z-10 py-32 px-4 overflow-hidden parallax-section" data-speed="0.15">
+      <section className="relative z-10 py-32 px-4 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-neon-purple to-transparent opacity-30"></div>
         <div className="absolute bottom-0 right-0 w-full h-2 bg-gradient-to-r from-transparent via-neon-blue to-transparent opacity-30"></div>
         <div className="max-w-7xl mx-auto">
@@ -274,7 +274,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-dark-surface/30 relative overflow-hidden">
+      <section className="relative z-10 py-32 px-4 bg-dark-surface/30 overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: 'repeating-linear-gradient(0deg, rgba(185, 0, 255, 0.05) 0px, transparent 1px, transparent 2px, rgba(185, 0, 255, 0.05) 3px), repeating-linear-gradient(90deg, rgba(0, 180, 255, 0.05) 0px, transparent 1px, transparent 2px, rgba(0, 180, 255, 0.05) 3px)',
           backgroundSize: '50px 50px'
@@ -309,7 +309,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="demo" className="relative z-10 py-32 px-4 overflow-hidden parallax-section" data-speed="0.1">
+      <section id="demo" className="relative z-10 py-32 px-4 overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(185, 0, 255, 0.2) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 180, 255, 0.2) 0%, transparent 50%)'
         }}></div>
@@ -357,7 +357,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-dark-surface/30 relative overflow-hidden">
+      <section className="relative z-10 py-32 px-4 bg-dark-surface/30 overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: 'repeating-linear-gradient(0deg, rgba(185, 0, 255, 0.05) 0px, transparent 1px, transparent 2px, rgba(185, 0, 255, 0.05) 3px), repeating-linear-gradient(90deg, rgba(0, 180, 255, 0.05) 0px, transparent 1px, transparent 2px, rgba(0, 180, 255, 0.05) 3px)',
           backgroundSize: '50px 50px'
@@ -421,7 +421,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative z-10 py-32 px-4 overflow-hidden parallax-section" data-speed="0.14">
+      <section className="relative z-10 py-32 px-4 overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(185, 0, 255, 0.2) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 180, 255, 0.2) 0%, transparent 50%)'
         }}></div>
@@ -457,7 +457,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative z-10 py-32 px-4 bg-dark-surface/30 parallax-section" data-speed="0.16">
+      <section className="relative z-10 py-32 px-4 bg-dark-surface/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-16 text-glow bg-gradient-to-r from-neon-purple to-neon-blue bg-clip-text text-transparent">
             3 шага к предсказуемым результатам
@@ -487,7 +487,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative z-10 py-32 px-4 parallax-section" data-speed="0.12">
+      <section className="relative z-10 py-32 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-16 text-glow bg-gradient-to-r from-neon-pink to-neon-blue bg-clip-text text-transparent">
             Форматы сотрудничества
@@ -536,7 +536,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="form" className="relative z-10 py-32 px-4 parallax-section" data-speed="0.08">
+      <section id="form" className="relative z-10 py-32 px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-8 text-glow bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
             Запросить созвон
