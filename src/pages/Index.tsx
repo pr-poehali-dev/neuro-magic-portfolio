@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -9,9 +9,29 @@ import { Card } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
+import ParticlesBackground from '@/components/ui/particles-background';
 
 const Index = () => {
   const { toast } = useToast();
+  const parallaxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!parallaxRef.current) return;
+      const scrolled = window.scrollY;
+      const sections = parallaxRef.current.querySelectorAll('.parallax-section');
+      
+      sections.forEach((section) => {
+        const element = section as HTMLElement;
+        const speed = parseFloat(element.dataset.speed || '0.5');
+        const yPos = -(scrolled * speed);
+        element.style.transform = `translateY(${yPos}px)`;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -40,7 +60,7 @@ const Index = () => {
         { label: "Лендинг услуги", href: "https://neuro-seller-landing--preview.poehali.dev/" },
         { label: "Демо-бот в Telegram", href: "https://t.me/Valery_Neuro_Progressorbot" }
       ],
-      icon: "Bot"
+      image: "https://cdn.poehali.dev/files/5672b765-043e-45e7-a2af-04b3c21f1125.png"
     },
     {
       title: "Контент-цех ТЕКСТ",
@@ -49,13 +69,13 @@ const Index = () => {
         { label: "Писатель-бот", href: "https://t.me/PISAKA_progresor_bot" },
         { label: "Контент-набор (20 идей)", href: "https://disk.yandex.ru/i/gSPbzaVkF1jwdA" }
       ],
-      icon: "FileText"
+      image: "https://cdn.poehali.dev/files/114a5d65-b431-4513-bba1-b062c60aa6a1.png"
     },
     {
       title: "Контент-цех ВИДЕО АВАТАР",
       text: "Автоматизация выпуска видео-контента с видео-аватаром.",
       links: [{ label: "Смотреть соцсети", href: "#footer-socials" }],
-      icon: "Video"
+      image: "https://cdn.poehali.dev/files/b28b06e3-b040-44cf-b467-0eb87f61f787.png"
     },
     {
       title: "No-code MVP",
@@ -64,25 +84,25 @@ const Index = () => {
         { label: "Парсинг телефонов", href: "https://preview--lead-compass-62.lovable.app/" },
         { label: "Анализ договоров", href: "https://124235324325434223521.abacusai.app/" }
       ],
-      icon: "Zap"
+      image: "https://cdn.poehali.dev/files/79beb102-cc92-4c2b-a088-6ac36dc46e02.png"
     },
     {
       title: "Автоматизация для НКО",
       text: "ИИ-архитектура в БФ «Обитель Милосердия».",
       links: [{ label: "Описание", href: "https://disk.yandex.ru/i/4E4QJb4R3Vm_bg" }],
-      icon: "Heart"
+      image: "https://cdn.poehali.dev/files/df46aaf6-f1d4-4d9b-a9cf-b3c416e51a7e.png"
     },
     {
       title: "ИИ-дизайн",
       text: "Видео, презентации, карточки товара.",
       links: [{ label: "Примеры", href: "https://disk.yandex.ru/i/JfZq4V-ci111UQ" }],
-      icon: "Sparkles"
+      image: "https://cdn.poehali.dev/files/df46aaf6-f1d4-4d9b-a9cf-b3c416e51a7e.png"
     },
     {
       title: "HR-автоматизация",
       text: "Рекрутинг, адаптация, мотивация, обучение, оценка; регламенты-«комиксы».",
       links: [{ label: "Портфолио HR", href: "https://disk.yandex.ru/d/BC-7zYCfW2_Hbg" }],
-      icon: "Users"
+      image: "https://cdn.poehali.dev/files/df46aaf6-f1d4-4d9b-a9cf-b3c416e51a7e.png"
     }
   ];
 
@@ -134,15 +154,16 @@ const Index = () => {
 
   const faqs = [
     { q: "Какие сроки пилота?", a: "Обычно 10–14 дней от старта до работающего MVP." },
-    { q: "Как обеспечивается безопасность данных?", a: "Работаем по NDA; используем закрытые контуры и доступы заказчика." },
-    { q: "С какими CRM/сервисами интегрируетесь?", a: "Bitrix24, amoCRM, Telegram-боты, формы, API; обсуждаем ваш стек." },
-    { q: "Кто обучает команду?", a: "Проводим воркшопы/методички; передаём сценарии, регламенты и роли." },
+    { q: "Как обеспечивается безопасность данных?", a: "Работаю по NDA; использую закрытые контуры и доступы заказчика." },
+    { q: "С какими CRM/сервисами интегрируюсь?", a: "Bitrix24, amoCRM, Telegram-боты, формы, API; обсуждаем ваш стек." },
+    { q: "Кто обучает команду?", a: "Провожу воркшопы/методички; передаю сценарии, регламенты и роли." },
     { q: "Есть поддержка после запуска?", a: "Да: SLA-поддержка/итерации по согласованному плану." }
   ];
 
   return (
-    <div className="min-h-screen bg-dark-bg text-white overflow-x-hidden">
-      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+    <div ref={parallaxRef} className="relative min-h-screen bg-dark-bg text-white overflow-x-hidden">
+      <ParticlesBackground />
+      <section className="relative z-10 min-h-screen flex items-center justify-center px-4 overflow-hidden parallax-section" data-speed="0.3">
         <div className="absolute inset-0 bg-gradient-to-br from-neon-purple/20 via-neon-pink/10 to-neon-blue/20"></div>
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(185, 0, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(0, 180, 255, 0.15) 0%, transparent 50%)',
@@ -157,9 +178,13 @@ const Index = () => {
             />
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 text-glow bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue bg-clip-text text-transparent leading-tight">
-            HRBP + ИИ: ускоряю процессы, команды и продажи
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 text-white leading-tight">
+            Валерия Кравченко
           </h1>
+          
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-glow bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue bg-clip-text text-transparent leading-tight">
+            HRBP + ИИ: ускоряю процессы, команды и продажи
+          </h2>
           
           <p className="text-lg md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto">
             25 лет HR-экспертизы × свежие ИИ-инструменты: от диагностики и регламентов до нейропроцессов и ботов, которые продают.
@@ -207,25 +232,35 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, idx) => (
-              <Card key={idx} className="glass-card p-6 hover:scale-105 hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300 animate-fade-in" style={{ animationDelay: `${idx * 100}ms` }}>
-                <div className="mb-4">
-                  <Icon name={service.icon} size={40} className="text-neon-pink animate-glow-pulse" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">{service.title}</h3>
-                <p className="text-muted-foreground mb-4">{service.text}</p>
-                <div className="flex flex-col gap-2">
-                  {service.links.map((link, linkIdx) => (
-                    <a
-                      key={linkIdx}
-                      href={link.href}
-                      className="text-neon-blue hover:text-neon-pink transition-colors text-sm flex items-center gap-1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Icon name="ExternalLink" size={16} />
-                      {link.label}
-                    </a>
-                  ))}
+              <Card key={idx} className="relative overflow-hidden glass-card hover:scale-105 hover:shadow-[0_0_40px_rgba(185,0,255,0.5)] transition-all duration-300 animate-fade-in" style={{ animationDelay: `${idx * 100}ms` }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-neon-purple/10 via-transparent to-neon-blue/10 opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-dark-bg/40 to-transparent"></div>
+                {service.image && (
+                  <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+                <div className="relative p-6">
+                  <h3 className="text-2xl font-bold mb-3 text-white">{service.title}</h3>
+                  <p className="text-muted-foreground mb-4">{service.text}</p>
+                  <div className="flex flex-col gap-2">
+                    {service.links.map((link, linkIdx) => (
+                      <a
+                        key={linkIdx}
+                        href={link.href}
+                        className="text-neon-blue hover:text-neon-pink transition-colors text-sm flex items-center gap-1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Icon name="ExternalLink" size={16} />
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </Card>
             ))}
@@ -251,14 +286,17 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             {cases.map((caseItem, idx) => (
-              <Card key={idx} className="glass-card p-8 hover:scale-105 hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300">
+              <Card key={idx} className="relative overflow-hidden glass-card p-8 hover:scale-105 hover:shadow-[0_0_40px_rgba(185,0,255,0.5)] transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-neon-pink/10 via-transparent to-neon-purple/10 opacity-50"></div>
+                <div className="relative z-10">
                 {caseItem.logo && (
                   <div className="mb-4 h-16 flex items-center">
                     <img src={caseItem.logo} alt={caseItem.title} className="max-h-12 object-contain" />
                   </div>
                 )}
-                <h3 className="text-2xl font-bold mb-3 text-white">{caseItem.title}</h3>
-                <p className="text-muted-foreground">{caseItem.text}</p>
+                  <h3 className="text-2xl font-bold mb-3 text-white">{caseItem.title}</h3>
+                  <p className="text-muted-foreground">{caseItem.text}</p>
+                </div>
               </Card>
             ))}
           </div>
@@ -271,7 +309,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="demo" className="py-24 px-4 relative overflow-hidden">
+      <section id="demo" className="relative z-10 py-24 px-4 overflow-hidden parallax-section" data-speed="0.1">
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(185, 0, 255, 0.2) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 180, 255, 0.2) 0%, transparent 50%)'
         }}></div>
@@ -329,19 +367,12 @@ const Index = () => {
             Спикер и медиа
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <Card className="glass-card p-6 neon-border hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300">
+          <div className="mb-12">
+            <Card className="glass-card p-6 neon-border hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300 max-w-4xl mx-auto">
               <img 
                 src="https://cdn.poehali.dev/files/8019197a-ac7e-4282-a997-2c8c27f471e6.png" 
-                alt="Валерия на сцене"
-                className="w-full h-80 object-cover rounded-lg mb-4"
-              />
-            </Card>
-            <Card className="glass-card p-6 neon-border hover:shadow-[0_0_30px_rgba(0,180,255,0.3)] transition-all duration-300">
-              <img 
-                src="https://cdn.poehali.dev/files/45a9a4e8-6558-426e-94d5-45e509ebbac0.png" 
-                alt="Валерия портрет"
-                className="w-full h-80 object-cover rounded-lg mb-4"
+                alt="Валерия Кравченко"
+                className="w-full h-96 object-cover rounded-lg"
               />
             </Card>
           </div>
@@ -390,7 +421,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 px-4 relative overflow-hidden">
+      <section className="relative z-10 py-24 px-4 overflow-hidden parallax-section" data-speed="0.14">
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(185, 0, 255, 0.2) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 180, 255, 0.2) 0%, transparent 50%)'
         }}></div>
@@ -426,7 +457,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-dark-surface/30">
+      <section className="relative z-10 py-24 px-4 bg-dark-surface/30 parallax-section" data-speed="0.16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-16 text-glow bg-gradient-to-r from-neon-purple to-neon-blue bg-clip-text text-transparent">
             3 шага к предсказуемым результатам
@@ -456,7 +487,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 px-4">
+      <section className="relative z-10 py-24 px-4 parallax-section" data-speed="0.12">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-16 text-glow bg-gradient-to-r from-neon-pink to-neon-blue bg-clip-text text-transparent">
             Форматы сотрудничества
@@ -464,17 +495,20 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 gap-6">
             {packages.map((pkg, idx) => (
-              <Card key={idx} className="glass-card p-8 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,180,255,0.3)] transition-all duration-300">
+              <Card key={idx} className="relative overflow-hidden glass-card p-8 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,180,255,0.5)] transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/10 via-transparent to-neon-purple/10 opacity-50"></div>
+                <div className="relative z-10">
                 {pkg.badge && (
                   <span className="inline-block px-3 py-1 text-xs rounded-full bg-gradient-to-r from-neon-purple to-neon-pink text-white mb-4 shadow-[0_0_15px_rgba(185,0,255,0.5)]">
                     {pkg.badge}
                   </span>
                 )}
-                <h3 className="text-2xl font-bold mb-3 text-white">{pkg.title}</h3>
-                <p className="text-muted-foreground mb-6">{pkg.desc}</p>
-                <Button className="w-full bg-gradient-to-r from-neon-blue to-neon-purple hover:opacity-90 hover:shadow-[0_0_30px_rgba(0,180,255,0.5)] transition-all duration-300" asChild>
-                  <a href="#form">Получить предложение</a>
-                </Button>
+                  <h3 className="text-2xl font-bold mb-3 text-white">{pkg.title}</h3>
+                  <p className="text-muted-foreground mb-6">{pkg.desc}</p>
+                  <Button className="w-full bg-gradient-to-r from-neon-blue to-neon-purple hover:opacity-90 hover:shadow-[0_0_30px_rgba(0,180,255,0.5)] transition-all duration-300" asChild>
+                    <a href="#form">Получить предложение</a>
+                  </Button>
+                </div>
               </Card>
             ))}
           </div>
@@ -502,13 +536,22 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="form" className="py-24 px-4">
-        <div className="max-w-2xl mx-auto">
+      <section id="form" className="relative z-10 py-24 px-4 parallax-section" data-speed="0.08">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-8 text-glow bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
             Запросить созвон
           </h2>
           
-          <Card className="glass-card p-8 neon-border hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <Card className="glass-card p-6 neon-border">
+              <img 
+                src="https://cdn.poehali.dev/files/45a9a4e8-6558-426e-94d5-45e509ebbac0.png" 
+                alt="Валерия Кравченко"
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </Card>
+            
+            <Card className="glass-card p-8 neon-border hover:shadow-[0_0_40px_rgba(185,0,255,0.5)] transition-all">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="name" className="text-white">Имя *</Label>
@@ -626,10 +669,11 @@ const Index = () => {
               </Button>
             </form>
           </Card>
+          </div>
         </div>
       </section>
 
-      <footer id="footer-socials" className="py-16 px-4 bg-dark-surface/50 border-t border-white/5">
+      <footer id="footer-socials" className="relative z-10 py-16 px-4 bg-dark-surface/50 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center gap-8">
             <div className="flex flex-wrap gap-4 justify-center">
@@ -679,7 +723,7 @@ const Index = () => {
             </p>
             
             <p className="text-muted-foreground text-xs">
-              © 2024 Валерия Кравченко. Все права защищены.
+              © 2024 Валерия Кравченко. Все права защищены. Работаю как ИП.
             </p>
           </div>
         </div>
