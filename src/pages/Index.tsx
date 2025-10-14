@@ -96,13 +96,13 @@ const Index = () => {
       title: "ИИ-дизайн",
       text: "Видео, презентации, карточки товара.",
       links: [{ label: "Примеры", href: "https://disk.yandex.ru/i/JfZq4V-ci111UQ" }],
-      image: "https://cdn.poehali.dev/files/df46aaf6-f1d4-4d9b-a9cf-b3c416e51a7e.png"
+      image: "https://cdn.poehali.dev/files/3574c8b9-b7fe-4d99-a7b4-369170bb28a0.png"
     },
     {
       title: "HR-автоматизация",
       text: "Рекрутинг, адаптация, мотивация, обучение, оценка; регламенты-«комиксы».",
       links: [{ label: "Портфолио HR", href: "https://disk.yandex.ru/d/BC-7zYCfW2_Hbg" }],
-      image: "https://cdn.poehali.dev/files/df46aaf6-f1d4-4d9b-a9cf-b3c416e51a7e.png"
+      image: "https://cdn.poehali.dev/files/d70dfea0-f0c0-42ce-aa79-4b241da425ef.png"
     }
   ];
 
@@ -222,7 +222,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 px-4 relative overflow-hidden">
+      <section className="relative z-10 py-32 px-4 overflow-hidden parallax-section" data-speed="0.15">
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-neon-purple to-transparent opacity-30"></div>
         <div className="absolute bottom-0 right-0 w-full h-2 bg-gradient-to-r from-transparent via-neon-blue to-transparent opacity-30"></div>
         <div className="max-w-7xl mx-auto">
@@ -309,13 +309,13 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="demo" className="relative z-10 py-24 px-4 overflow-hidden parallax-section" data-speed="0.1">
+      <section id="demo" className="relative z-10 py-32 px-4 overflow-hidden parallax-section" data-speed="0.1">
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(185, 0, 255, 0.2) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 180, 255, 0.2) 0%, transparent 50%)'
         }}></div>
         <div className="max-w-6xl mx-auto relative z-10">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-8 text-glow bg-gradient-to-r from-neon-blue to-neon-pink bg-clip-text text-transparent">
-            Нейропродавец: ваш бот-продавец 24/7
+            НейроПродавец: ваш ангел продаж 24/7
           </h2>
           
           <p className="text-xl text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
@@ -368,11 +368,11 @@ const Index = () => {
           </h2>
           
           <div className="mb-12">
-            <Card className="glass-card p-6 neon-border hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300 max-w-4xl mx-auto">
+            <Card className="glass-card p-6 neon-border hover:shadow-[0_0_30px_rgba(185,0,255,0.3)] transition-all duration-300 max-w-md mx-auto">
               <img 
                 src="https://cdn.poehali.dev/files/8019197a-ac7e-4282-a997-2c8c27f471e6.png" 
                 alt="Валерия Кравченко"
-                className="w-full h-96 object-cover rounded-lg"
+                className="w-full aspect-[3/4] object-cover rounded-lg"
               />
             </Card>
           </div>
@@ -421,7 +421,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative z-10 py-24 px-4 overflow-hidden parallax-section" data-speed="0.14">
+      <section className="relative z-10 py-32 px-4 overflow-hidden parallax-section" data-speed="0.14">
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: 'radial-gradient(circle at 30% 50%, rgba(185, 0, 255, 0.2) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 180, 255, 0.2) 0%, transparent 50%)'
         }}></div>
@@ -457,7 +457,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative z-10 py-24 px-4 bg-dark-surface/30 parallax-section" data-speed="0.16">
+      <section className="relative z-10 py-32 px-4 bg-dark-surface/30 parallax-section" data-speed="0.16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-16 text-glow bg-gradient-to-r from-neon-purple to-neon-blue bg-clip-text text-transparent">
             3 шага к предсказуемым результатам
@@ -487,7 +487,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative z-10 py-24 px-4 parallax-section" data-speed="0.12">
+      <section className="relative z-10 py-32 px-4 parallax-section" data-speed="0.12">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-16 text-glow bg-gradient-to-r from-neon-pink to-neon-blue bg-clip-text text-transparent">
             Форматы сотрудничества
@@ -536,7 +536,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="form" className="relative z-10 py-24 px-4 parallax-section" data-speed="0.08">
+      <section id="form" className="relative z-10 py-32 px-4 parallax-section" data-speed="0.08">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-8 text-glow bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
             Запросить созвон
